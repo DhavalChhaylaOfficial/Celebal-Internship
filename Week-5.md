@@ -1,4 +1,4 @@
-# Subnet and VM Setup
+# Create three subnets : 1. Web tier 2. App tier 3. DB tier <br> DB Tier should not access any tier(Web & App tier) App tier should access the DB tier and Web tier as well, Web tier should acccess only App tier. <br> Only Web tier is allowed to connect to the internet.Deploy two VM's in each tier(One VM should be Linux & another should be Windows). <br> Configure Apache Server on Linux VM's And IIS Server on Windows.
 
 ## 1. Create the Subnets
 Create the following subnets in your virtual network (VNet):
