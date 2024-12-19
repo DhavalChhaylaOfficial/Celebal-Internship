@@ -1,4 +1,4 @@
-# Celebal Cloud Computing Internship: Weekly Tasks
+# Celebal Cloud Computing Internship
 
 ## Week 1: Network Models and Protocols Blog Series
 
