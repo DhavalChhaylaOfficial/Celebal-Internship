@@ -46,5 +46,4 @@ This blog series provides a comprehensive guide for understanding the addressing
 - **Audience:** Perfect for networking beginners and professionals revisiting core concepts.  
 - **Benefits:** Builds a strong foundation in networking essentials, preparing readers for advanced topics like routing, subnetting, and network security.  
 
-*Author: Dhaval Chhayla*  
-*Networking Concepts Simplified!*
+**Author: Dhaval Chhayla**
