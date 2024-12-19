@@ -1,95 +1,125 @@
-# Create an Internal & External Load balancer(Verify It’s working).
+# **Week-6: Create an Internal & External Load Balancer in Azure**
 
-## Prerequisites
-Ensure you have already created your virtual network (VNet), subnets, and deployed your VMs as outlined in the previous steps.
+---
 
-## 1. Create an External Load Balancer
+### **Task:**  
+Create both an internal and an external load balancer in Azure to manage traffic. Ensure they are correctly configured and verified to balance traffic across multiple Virtual Machines (VMs).
 
-### 1.1 Create the Load Balancer
-1. Go to the Azure portal.
-2. Navigate to "Create a resource" and select "Load Balancer".
-3. Configure the load balancer:
+---
+
+### **Answer:**  
+
+#### **Overview of Load Balancers:**
+1. **External Load Balancer:**  
+   This load balancer is used to distribute incoming internet traffic to the Web Tier VMs. It is publicly accessible and serves as the entry point for external requests.
+
+2. **Internal Load Balancer:**  
+   The internal load balancer is used to distribute traffic within the internal network. It manages traffic from the Web Tier to the App Tier without exposing the App Tier VMs to the internet.
+
+---
+
+### **Step-by-Step Process:**
+
+#### **Step 1: Create the External Load Balancer**
+
+1. **Navigate to Azure Portal:**  
+   Go to the **Azure Portal**, and click on **Create a resource**.
+   
+2. **Create Load Balancer:**
+   - Select **Load Balancer** from the resources list.
    - **Name**: ExternalLB
    - **Type**: Public
-   - **SKU**: Basic or Standard (depending on your needs)
+   - **SKU**: Basic or Standard (based on your requirements)
    - **Virtual Network**: Select your existing VNet
-   - **Subnet**: Select the Web Tier subnet
-   - **Public IP address**: Create a new one or select an existing one
+   - **Subnet**: Choose the **Web Tier Subnet**
+   - **Public IP Address**: Create a new public IP or select an existing one.
 
-### 1.2 Configure Backend Pools
-1. In the load balancer settings, select "Backend pools".
-2. Add a new backend pool:
+3. **Configure Backend Pools:**
+   - Under the Load Balancer settings, go to **Backend Pools**.
    - **Name**: WebBackendPool
-   - **Add backend pool without a virtual machine scale set**: Yes
-   - **Add**: Select the Web Tier VMs
+   - **Backend Pool without a Virtual Machine Scale Set**: Yes
+   - **Add VMs**: Select the VMs in your **Web Tier** subnet.
 
-### 1.3 Configure Health Probes
-1. In the load balancer settings, select "Health probes".
-2. Add a new health probe:
+4. **Configure Health Probes:**
+   - Go to **Health Probes** in the settings.
    - **Name**: HTTPProbe
    - **Protocol**: HTTP
    - **Port**: 80
    - **Path**: /
 
-### 1.4 Configure Load Balancing Rules
-1. In the load balancer settings, select "Load balancing rules".
-2. Add a new rule:
+5. **Configure Load Balancing Rules:**
+   - Under **Load Balancing Rules**, click on **Add**.
    - **Name**: HTTPRule
-   - **Frontend IP address**: Select the Public IP
-   - **Backend pool**: Select WebBackendPool
+   - **Frontend IP Address**: Select the **Public IP**
+   - **Backend Pool**: Select **WebBackendPool**
    - **Protocol**: TCP
    - **Port**: 80
-   - **Backend port**: 80
-   - **Health probe**: Select HTTPProbe
+   - **Backend Port**: 80
+   - **Health Probe**: Select **HTTPProbe**
 
-### 1.5 Verify the External Load Balancer
-1. Obtain the public IP address of the load balancer.
-2. Open a web browser and navigate to the public IP address.
-3. You should see the default Apache/IIS page served by one of the Web Tier VMs.
+6. **Verify the External Load Balancer:**
+   - Obtain the public IP address of the load balancer.
+   - Open a web browser and navigate to the public IP address.
+   - You should see the default Apache/IIS page served by one of the Web Tier VMs.
 
-## 2. Create an Internal Load Balancer
+---
 
-### 2.1 Create the Load Balancer
-1. Go to the Azure portal.
-2. Navigate to "Create a resource" and select "Load Balancer".
-3. Configure the load balancer:
+#### **Step 2: Create the Internal Load Balancer**
+
+1. **Navigate to Azure Portal:**
+   Go to **Azure Portal** and select **Create a resource**.
+
+2. **Create Load Balancer:**
+   - Select **Load Balancer** from the list of available resources.
    - **Name**: InternalLB
    - **Type**: Internal
-   - **SKU**: Basic or Standard (depending on your needs)
+   - **SKU**: Basic or Standard (based on your requirements)
    - **Virtual Network**: Select your existing VNet
-   - **Subnet**: Select the App Tier subnet
-   - **Private IP address**: Choose a static or dynamic address
+   - **Subnet**: Choose the **App Tier Subnet**
+   - **Private IP Address**: Select **Static** or **Dynamic IP**.
 
-### 2.2 Configure Backend Pools
-1. In the load balancer settings, select "Backend pools".
-2. Add a new backend pool:
+3. **Configure Backend Pools:**
+   - In the Load Balancer settings, go to **Backend Pools**.
    - **Name**: AppBackendPool
-   - **Add backend pool without a virtual machine scale set**: Yes
-   - **Add**: Select the App Tier VMs
+   - **Add Backend Pool without a Virtual Machine Scale Set**: Yes
+   - **Add VMs**: Select the VMs in your **App Tier** subnet.
 
-### 2.3 Configure Health Probes
-1. In the load balancer settings, select "Health probes".
-2. Add a new health probe:
+4. **Configure Health Probes:**
+   - Go to **Health Probes** and add a new probe.
    - **Name**: HTTPProbe
    - **Protocol**: HTTP
    - **Port**: 80
    - **Path**: /
 
-### 2.4 Configure Load Balancing Rules
-1. In the load balancer settings, select "Load balancing rules".
-2. Add a new rule:
+5. **Configure Load Balancing Rules:**
+   - Go to **Load Balancing Rules** and click on **Add**.
    - **Name**: HTTPRule
-   - **Frontend IP address**: Select the Private IP
-   - **Backend pool**: Select AppBackendPool
+   - **Frontend IP Address**: Select the **Private IP**
+   - **Backend Pool**: Select **AppBackendPool**
    - **Protocol**: TCP
    - **Port**: 80
-   - **Backend port**: 80
-   - **Health probe**: Select HTTPProbe
+   - **Backend Port**: 80
+   - **Health Probe**: Select **HTTPProbe**
 
-### 2.5 Verify the Internal Load Balancer
-1. Obtain the private IP address of the load balancer.
-2. From one of the Web Tier VMs, open a web browser and navigate to the private IP address.
-3. You should see the default Apache/IIS page served by one of the App Tier VMs.
+6. **Verify the Internal Load Balancer:**
+   - Obtain the private IP address of the load balancer.
+   - From one of the **Web Tier VMs**, open a web browser and navigate to the private IP address.
+   - You should see the default Apache/IIS page served by one of the **App Tier VMs**.
 
-## Summary
-You have successfully created and verified both an internal and external load balancer. The external load balancer allows traffic from the internet to your Web Tier, while the internal load balancer manages traffic within your network, specifically from the Web Tier to the App Tier.
+---
+
+### **Outcomes:**
+
+- **Load Balancer Setup:** Create and configure both **external** and **internal** load balancers in Azure for traffic distribution.
+- **Traffic Distribution:** Distribute traffic efficiently to ensure **high availability** and **fault tolerance**.
+- **IP Usage:** Understand the use of **public** and **private IPs** for external and internal communication.
+- **Health Probes:** Set up **health probes** to monitor backend VM status and maintain reliability.
+- **Verification:** Test and verify that load balancers are routing traffic correctly to VMs.
+
+
+---
+
+### **Conclusion:**
+You have configured and verified both an **Internal** and **External Load Balancer** in Azure. The external load balancer manages incoming internet traffic to the Web Tier, while the internal load balancer ensures secure communication between the Web and App Tiers. This setup provides a scalable and secure infrastructure for your application.
+
+**Author: Dhaval Chhayla**
