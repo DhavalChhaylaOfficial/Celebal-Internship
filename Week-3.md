@@ -1,87 +1,103 @@
-# Week 3  
+# **Week 3: Virtual Machine**
+
+---
 
 ### **Task:**  
-How to Create a Virtual Machine in a Virtual Network Using Azure?
+How to create and deploy a Virtual Machine (VM) within a Virtual Network (VNet) using Azure while leveraging resource management best practices?
 
 ---
 
 ### **Answer:**  
 
-#### **Overview of Key Concepts**
+#### **Overview of Key Concepts**  
 
 1. **Virtual Machines (VMs):**  
-   Virtual Machines mimic physical computers, enabling installation and execution of operating systems and software. They provide benefits like:  
-   - Rapid provisioning  
+   VMs replicate physical computers, allowing installation and execution of operating systems and applications.  
+   **Advantages:**  
+   - Quick provisioning  
    - Scalability  
-   - Consolidation of multiple VMs on a single host  
+   - Cost-effective consolidation of resources  
 
 2. **Virtual Networks (VNets):**  
-   Virtual Networks ensure secure and isolated network environments. They allow:  
-   - Segmentation into subnets  
-   - Definition of IP address ranges  
-   - Network connectivity between VMs and Azure services  
+   VNets provide secure, isolated environments for connecting VMs and Azure services.  
+   **Key Features:**  
+   - IP address management  
+   - Subnet segmentation  
+   - Hybrid connectivity options  
 
 3. **Resource Groups:**  
-   Logical containers to organize Azure resources. Benefits include:  
-   - Simplified management  
-   - Group-based policies and access controls  
-   - Unified billing and lifecycle management  
+   Logical containers for organizing Azure resources, simplifying lifecycle management.  
+   **Benefits:**  
+   - Simplified access control  
+   - Unified billing and management  
+   - Streamlined deployment processes  
 
 ---
 
-### **Step-by-Step Process**
+### **Step-by-Step Process**  
 
 #### **Step 1: Create a Resource Group**  
-1. Go to the Azure portal and click on "Create a resource" (+).  
-2. Search for "Resource Group" and click "Create".  
+1. Log in to the **Azure Portal** and click on "Create a Resource".  
+2. Search for and select **Resource Group**.  
 3. Enter the details:  
-   - **Subscription:** Select (e.g., Azure for Students).  
-   - **Resource Group Name:** Provide a name (e.g., TestResourceGroup).  
-   - **Region:** Choose a suitable region.  
-4. Optionally add name-value key pairs.  
-5. Review the information and click "Create".
+   - **Subscription:** Choose an active subscription (e.g., Azure for Students).  
+   - **Name:** Provide a unique resource group name (e.g., TestResourceGroup).  
+   - **Region:** Select a data center region (e.g., East US).  
+4. (Optional) Add tags for categorization.  
+5. Click **Create** and confirm resource group creation.
 
 ---
 
-#### **Step 2: Create a Virtual Network**  
-1. In the Azure portal, create a Virtual Network and fill in the details:  
-   - **Subscription:** Select the subscription.  
-   - **Name:** Provide a name for the Virtual Network.  
-   - **Region:** Choose the region.  
+#### **Step 2: Set Up a Virtual Network (VNet)**  
+1. Navigate to "Create a Resource" and search for **Virtual Network**.  
+2. Enter the following details:  
+   - **Name:** Assign a name to the network (e.g., TestVNet).  
+   - **Region:** Choose the same region as the resource group.  
    - **Resource Group:** Select the previously created resource group.  
-2. Define a subnet (e.g., TestSubnet) in the IP Addresses tab.  
-3. Add optional tags in the Tags tab.  
-4. Review the details and click "Create".  
-5. Navigate to "Go to Resource" to confirm the Virtual Network is created.
+3. Under the **IP Addresses** tab:  
+   - Configure the address space and subnets (e.g., Subnet: TestSubnet).  
+4. (Optional) Add tags for organization.  
+5. Review and click **Create**.  
 
 ---
 
-#### **Step 3: Create a Virtual Machine**  
-1. Go to the Virtual Machines dashboard in Azure and click "Create".  
-2. In the Basics tab, provide the following details:  
+#### **Step 3: Create a Virtual Machine (VM)**  
+1. Go to the **Virtual Machines** section in the Azure Portal and click on **Create**.  
+2. Under the **Basics** tab:  
    - **Subscription:** Select the subscription.  
-   - **Resource Group:** Choose the previously created resource group.  
-   - **Virtual Machine Name:** Provide a name (e.g., TestVirtualMachine).  
-   - **Region:** Choose the deployment region.  
-   - **Image:** Select the desired operating system.  
-   - **Size:** Choose the compute and memory configuration.  
-   - **Administrator Account:** Specify the username and password.  
-3. Leave the remaining settings as default.  
-4. Review the configuration in the "Review + Create" tab.  
-5. Click "Create" to deploy the virtual machine.  
-6. Navigate to "Go to Resource" to view the VM details.
+   - **Resource Group:** Choose the resource group.  
+   - **VM Name:** Provide a VM name (e.g., TestVM).  
+   - **Region:** Ensure it matches the VNet region.  
+   - **Image:** Select the operating system (e.g., Ubuntu Server).  
+   - **Size:** Configure the VM’s CPU and memory.  
+   - **Authentication:** Define admin credentials (username and password).  
+3. In the **Networking** tab:  
+   - Connect the VM to the previously created Virtual Network and subnet.  
+4. Leave default settings in the remaining tabs.  
+5. Review configurations and click **Create**.  
+6. After deployment, access the VM through the Azure portal or SSH.
 
 ---
 
 ### **Outcomes**  
 
-- Successfully created a Virtual Machine within a Virtual Network in Azure.  
-- Learned the integration of Virtual Machines, Virtual Networks, and Resource Groups to form a scalable and secure cloud infrastructure.  
-- Enhanced knowledge of Azure's resource organization and deployment practices.  
-- Realized the potential of cloud computing to achieve:  
-  - **Scalability**  
-  - **Flexibility**  
-  - **Cost Optimization**  
+1. **Infrastructure Creation:**  
+   - Successfully deployed a Virtual Machine connected to a secure Virtual Network.  
 
-**Conclusion:**  
-This task demonstrated the foundational elements of cloud infrastructure, highlighting Azure's robust tools for creating and managing resources efficiently.
+2. **Practical Knowledge Gained:**  
+   - Understood the role of resource groups for efficient management.  
+   - Learned to configure IP ranges and subnets within Virtual Networks.  
+   - Mastered VM setup and integration with VNets for seamless communication.  
+
+3. **Cloud Benefits:**  
+   - **Scalability:** Rapid deployment of additional VMs.  
+   - **Security:** Isolated and manageable network configurations.  
+   - **Cost Efficiency:** Pay-as-you-go model for optimized expenses.  
+
+---
+
+### **Conclusion**  
+
+This task demonstrated the power of Azure for deploying secure, scalable cloud infrastructures. By integrating Virtual Machines with Virtual Networks and Resource Groups, it highlighted Azure’s flexibility and ease of resource management.  
+
+**Author: Dhaval Chhayla**   
