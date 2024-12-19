@@ -164,5 +164,4 @@ Deploy two VMs in each subnet, one running Linux and the other running Windows.
 ### **Conclusion:**
 The task demonstrates the configuration of a three-tier architecture with specific traffic control using **Network Security Groups (NSGs)** in Azure. The deployment of **Linux and Windows VMs** in each tier, along with proper web and database server configuration, ensures that the architecture is both functional and secure.
 
-*Author: Dhaval Chhayla*  
-*Building secure and efficient multi-tier networks in the cloud!*
+**Author: Dhaval Chhayla**
