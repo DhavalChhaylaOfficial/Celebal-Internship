@@ -57,4 +57,4 @@ This blog series provides a comprehensive guide to the foundational models and p
 - **Audience:** Ideal for beginners stepping into the world of networking.  
 - **Benefits:** Simplifies complex concepts and builds a strong base for understanding advanced networking topics like routing, switching, and security.  
 
-*Author: Dhaval Chhayla* 
+**Author: Dhaval Chhayla**
